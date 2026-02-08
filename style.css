@@ -871,28 +871,44 @@ p {
   width: 100%;
 }
 
-/* Standard: Desktop -> Button ausblenden */
-.mobile-header-call {
+/* Mobile Header Buttons Container */
+.mobile-header-buttons {
   display: none;
 }
 
-/* Mobile: Button anzeigen + layouten */
+/* Mobile: BEIDE Buttons anzeigen */
 @media (max-width:1024px){
-  .mobile-header-call {
-    display: inline-flex;
-    margin-left: auto;
-    margin-right: 12px;
-    padding: 8px 16px;
-    font-size: 14px;
-    border-radius: 12px;
-  }
-
   .nav-cta {
     display: none !important;
   }
+  
+  .mobile-header-call {
+    display: none !important;
+  }
+  
+  .mobile-header-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  .mobile-header-buttons .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  
+  .mobile-header-buttons .btn svg {
+    width: 16px;
+    height: 16px;
+  }
 
   .nav-wrap {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 12px;
   }
 }
 
