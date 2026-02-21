@@ -6,13 +6,11 @@
   <title>Portfolio - MHM Garten- und Landschaftsbau</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Portfolio-spezifische Styles */
     .portfolio-hero {
       background: #f8f8f8;
       padding: 140px 20px 60px;
       text-align: center;
     }
-
     .portfolio-hero h1 {
       font-size: clamp(2.5rem, 6vw, 4rem);
       margin-bottom: 1.5rem;
@@ -20,7 +18,6 @@
       color: #2d5016;
       line-height: 1.1;
     }
-
     .portfolio-hero p {
       font-size: clamp(1.1rem, 2.5vw, 1.4rem);
       color: #333;
@@ -28,12 +25,10 @@
       margin: 0 auto;
       line-height: 1.6;
     }
-
     .gallery-section {
       padding: 80px 20px;
       background: #fff;
     }
-
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -41,7 +36,6 @@
       max-width: 1400px;
       margin: 0 auto;
     }
-
     .gallery-item {
       position: relative;
       overflow: hidden;
@@ -52,63 +46,47 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .gallery-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
-
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
     }
-
     .gallery-item:hover img {
       transform: scale(1.05);
     }
-
-    /* Lightbox */
     .lightbox {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: rgba(0,0,0,0.95);
       z-index: 10000;
       align-items: center;
       justify-content: center;
     }
-
-    .lightbox.active {
-      display: flex;
-    }
-
+    .lightbox.active { display: flex; }
     .lightbox-content {
       position: relative;
-      max-width: 90%;
-      max-height: 90%;
+      max-width: 90%; max-height: 90%;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-
     .lightbox img {
       max-width: 100%;
       max-height: 90vh;
       object-fit: contain;
       border-radius: 8px;
     }
-
     .lightbox-close {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
+      top: 20px; right: 20px;
+      width: 50px; height: 50px;
       background: rgba(255,255,255,0.1);
       border: 2px solid white;
       border-radius: 50%;
@@ -121,18 +99,15 @@
       transition: all 0.3s ease;
       z-index: 10001;
     }
-
     .lightbox-close:hover {
       background: rgba(255,255,255,0.2);
       transform: rotate(90deg);
     }
-
     .lightbox-nav {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 50px;
-      height: 50px;
+      width: 50px; height: 50px;
       background: rgba(255,255,255,0.1);
       border: 2px solid white;
       border-radius: 50%;
@@ -145,23 +120,12 @@
       transition: all 0.3s ease;
       user-select: none;
     }
-
-    .lightbox-nav:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    .lightbox-prev {
-      left: 20px;
-    }
-
-    .lightbox-next {
-      right: 20px;
-    }
-
+    .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
     .lightbox-counter {
       position: absolute;
-      bottom: 20px;
-      left: 50%;
+      bottom: 20px; left: 50%;
       transform: translateX(-50%);
       color: white;
       font-size: 16px;
@@ -169,38 +133,22 @@
       padding: 10px 20px;
       border-radius: 20px;
     }
-
-    /* Loading Skeleton */
     .gallery-item.loading {
       background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
       background-size: 200% 100%;
       animation: loading 1.5s infinite;
     }
-
     @keyframes loading {
       0% { background-position: 200% 0; }
       100% { background-position: -200% 0; }
     }
-
     @media (max-width: 768px) {
       .gallery-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 15px;
       }
-
-      .lightbox-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-      }
-
-      .lightbox-close {
-        width: 40px;
-        height: 40px;
-        font-size: 24px;
-        top: 10px;
-        right: 10px;
-      }
+      .lightbox-nav { width: 40px; height: 40px; font-size: 20px; }
+      .lightbox-close { width: 40px; height: 40px; font-size: 24px; top: 10px; right: 10px; }
     }
   </style>
 </head>
@@ -229,7 +177,6 @@
           </svg>
           WhatsApp
         </a>
-        
         <a class="btn" href="tel:+491779574587" aria-label="Anrufen">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
             <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 7a1 1 0 0 1 1-1h3.49a1 1 0 0 1 1 1c0 1.22.2 2.42.57 3.56a1 1 0 0 1-.24 1.02l-2.2 2.21z"/>
@@ -238,14 +185,12 @@
         </a>
       </div>
   
-      <!-- Mobile Buttons Container -->
       <div class="mobile-header-buttons">
         <a class="btn" href="https://wa.me/491779574587" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" fill="currentColor" aria-hidden="true">
             <path d="M16 .396C7.2.396.005 7.59.005 16.396c0 2.887.758 5.704 2.204 8.188L.11 31.927l7.558-2.047a15.82 15.82 0 0 0 8.332 2.316h.006c8.8 0 15.994-7.193 15.994-16 0-4.266-1.66-8.272-4.672-11.283C24.272 2.056 20.266 .396 16 .396Zm0 29.084c-2.652 0-5.238-.713-7.488-2.063l-.537-.318-4.488 1.214 1.195-4.367-.35-.551a13.32 13.32 0 0 1-2.037-7.104c0-7.34 5.973-13.313 13.313-13.313 3.555 0 6.89 1.387 9.404 3.9 2.514 2.52 3.896 5.854 3.896 9.409 0 7.34-5.973 13.313-13.313 13.313Zm7.285-9.947c-.398-.2-2.355-1.16-2.72-1.293-.365-.136-.632-.2-.9.2-.265.398-1.032 1.293-1.265 1.558-.232.265-.465.298-.863.099-.398-.2-1.68-.62-3.197-1.976-1.18-1.05-1.977-2.352-2.21-2.75-.232-.398-.025-.613.175-.813.18-.18.398-.465.598-.698.2-.232.265-.398.398-.664.132-.265.066-.498-.033-.698-.1-.2-.9-2.166-1.233-2.966-.324-.78-.654-.673-.9-.685-.232-.012-.498-.015-.765-.015-.265 0-.698.1-1.065.498-.365.398-1.398 1.367-1.398 3.332s1.432 3.863 1.632 4.132c.2.265 2.816 4.297 6.82 6.028.954.412 1.7.66 2.28.844.957.305 1.828.262 2.516.159.768-.114 2.355-.961 2.688-1.889.332-.928.332-1.722.232-1.889-.1-.166-.365-.265-.764-.465Z"/>
           </svg>
         </a>
-        
         <a class="btn" href="tel:+491779574587" aria-label="Anrufen">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
             <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 7a1 1 0 0 1 1-1h3.49a1 1 0 0 1 1 1c0 1.22.2 2.42.57 3.56a1 1 0 0 1-.24 1.02l-2.2 2.21z"/>
@@ -263,9 +208,7 @@
   </section>
 
   <section class="gallery-section">
-    <div class="gallery-grid" id="gallery">
-      <!-- Bilder werden hier dynamisch eingefügt -->
-    </div>
+    <div class="gallery-grid" id="gallery"></div>
   </section>
 
   <!-- Lightbox -->
@@ -282,15 +225,8 @@
   <section class="nearby">
     <div class="nearby-inner">
       <h2 class="nearby-title">Lassen Sie sich inspirieren!</h2>
-
-      <p class="nearby-address">
-        Poppenweilerstr. 32, 71640 Ludwigsburg
-      </p>
-
-      <p class="nearby-text">
-        Beeindruckt von unseren Projekten? Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch.
-      </p>
-
+      <p class="nearby-address">Poppenweilerstr. 32, 71640 Ludwigsburg</p>
+      <p class="nearby-text">Beeindruckt von unseren Projekten? Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch.</p>
       <a href="index.html#kontakt" class="btn-primary nearby-btn">Jetzt anfragen →</a>
     </div>
   </section>
@@ -308,26 +244,113 @@
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
       </nav>
-      <div class="copyright">© 2025 MHM Garten- und Landschaftsbau</div>
+      <div class="copyright">© 2022 MHM Garten- und Landschaftsbau</div>
     </div>
   </footer>
 
   <script>
-    // Bildliste basierend auf dem Screenshot
+    // ALLE Bilder aus dem Portfolio-Ordner (aus Screenshots abgelesen)
     const images = [
-      '909e8bd6-ec23-4b87-ad0f-df239303ef30-4-scaled.jpg',
-      '463275a9-6f8a-4861-b71a-84dbca1cf2ca-4-scaled.jpg',
+      // Screenshot 4 - a bis f
+      'a7c3ff2e-3e0f-415c-8856-4794b8f2db2f.jpeg',
+      'A72D2756-A3F7-42C5-B314-C6AAE602C69B.jpeg',
+      'a3939d0d-6b41-41d4-a131-3672ca934ce9.jpeg',
       'ad0c49d3-b848-4418-9b3e-57afd9ceea88-scaled.jpg',
+      'b1a7ead1-ea0c-4ec9-b2eb-de461e73893c.jpeg',
+      'b1c2d4d0-eb4f-439a-ba6d-17f2c3c5a2cf 2.jpeg',
+      'b129d628-ef9e-4bf1-b05c-d55a9bd0b756.jpeg',
       'bb68aa81-e08d-40c4-ab71-156c6994a25f.jpg',
       'be5cc85c-b43b-4a38-8b7a-2411d8ab43c1-scaled.jpg',
       'bff91228-b9f8-42bd-bf62-c15b604b2fdd-4.jpg',
+      'C4CCE149-A4DA-4FD0-A1BA-57DB949ECC43_1_105_c.jpeg',
+      'c09cb500-90a4-4da7-9c2b-6e55184f8c84.jpeg',
+      'CA5A584E-841D-4A3F-AA11-E74F957B3872_1_105_c.jpeg',
+      'cf1fe810-ed2c-4226-95a9-22b9598dbf36.jpeg',
+      'd2d26d2e-1576-4189-b7b5-c2ea1ca7077c.jpeg',
+      'D5D6AD0E-3793-47B1-BDC5-1F2D1C50CABB.png',
+      'd3365bca-9353-4bdb-85c9-8920418ad328.jpeg',
+      'deecaeea-eafc-4aef-95a0-5893316edd26.jpeg',
+      'e1c6fba9-6412-49ca-86e3-cf9b4694b56b.jpeg',
+      'E4AF820D-8488-4116-A2D5-077BCB964C2F.jpeg',
+      'e78cfe3b-dfaf-4a82-ab0f-aee50a5a4417.jpeg',
+      'E3648D6B-CF34-4687-BA98-6550B30D52BD.jpeg',
+      'E260706F-2074-4447-9AD4-2A6AD8C0B4AB.jpeg',
+      'efd6c3be-e0c6-4c50-914f-45d6daf3c35e.jpeg',
       'f9c69591-a1fa-4407-aab6-c19c9f6127d1-4-scaled.jpg',
+      'f15a972b-d537-4001-9dfa-7294af93d188.jpeg',
+      'FE2C7215-E870-4580-88CB-0015AADDF94E.jpeg',
+
+      // Screenshot 1 - 0 bis 9
+      '0BF58EBD-CBE0-4BA1-83DB-BA506A16F9AD.jpeg',
+      '0c6558eb-cce2-4b9b-9137-2756526f1dd3.jpeg',
+      '0f0f3273-de30-4ac3-ab08-851cdfa006ff.jpeg',
+      '0FDEF35D-56BF-4FB0-B3BE-A9974BA28584.jpeg',
+      '2a9c0d32-db98-4e66-9b6a-865194c1077a.jpeg',
+      '4DAA5991-445E-4366-B7D5-0F2E62E34354.jpeg',
+      '4f659c4f-f008-4d0e-bd9d-36d9cea00018 2.jpeg',
+      '5C8F1AF6-6ED8-48FC-9441-8FD3E81E002E_1_201_a.jpeg',
+      '5cd3abf1-c7e2-4fcf-b055-ce5322026b0d.jpeg',
+      '6d676fd7-8b0b-4a4a-aaa4-c79382bc6267.jpeg',
+      '6e7c4a18-f84f-48c3-b755-5b609266c747.jpeg',
+      '6e930ae1-1fb9-4927-883e-52ced492b6f6.jpeg',
+      '8e834bfe-a226-4239-870b-53d8ad308362.jpeg',
+      '08ECE287-4BA3-43AC-8162-E41127F14503_1_201_a.jpeg',
+      '8fb95e5b-7825-4aff-9505-2bdeb19b54bd.jpeg',
+      '9b14ebf2-ddd6-42aa-b76f-ca767b4c09dc 2.jpeg',
+      '9E74FB5D-CCBB-4304-92B9-4B20E91502D3.jpeg',
+      '30A4C023-26A0-4B7B-846C-7850D4069DCF.jpeg',
+      '49e727bc-c087-4a4e-964e-d5f7685e1a9a.jpeg',
+      '56e2530e-fc84-4ac2-a45d-a4b643fa7540.jpeg',
+      '67b37686-0c43-48c3-bed2-4054f50c84a3.jpeg',
+      '72D4542F-BDCC-4815-BFE6-4473CB2E9ACF.jpeg',
+      '74BBA287-64E4-4032-AC47-16AC780309E0.jpeg',
+      '98EEA63E-3628-40C6-A157-8D5313E8174A.jpeg',
+      '253b060e-2298-47b2-9cab-a58eeee37a79.jpeg',
+      '328EB313-9D29-4E8E-BD32-AA56D109126B_1_105_c.jpeg',
+      '608cabfd-6608-42aa-8850-f6f26f549869.jpeg',
+      '685c5d3c-63ee-49a2-b87f-fdf4efa11956.jpeg',
+      '909e8bd6-ec23-4b87-ad0f-df239303ef30-4-scaled.jpg',
+      '4436D348-24A2-42F6-9E11-4E5419FF7FF7_1_105_c.jpeg',
+      '7004F9B0-65AD-4849-B099-D6A36E623B1D.jpeg',
+      '8152B53E-D125-4D93-A58A-D60AA7960FD6_1_201_a.jpeg',
+      '8994D0D7-9BF6-4770-A0DE-191F82C04730_1_201_a.jpeg',
+      '69702cfa-cdaf-42c1-8803-2f50892722f7 2.jpeg',
+      '76820c17-36ca-48d2-bc7e-13f795407349 2.jpeg',
+      '463275a9-6f8a-4861-b71a-84dbca1cf2ca-4-scaled.jpg',
+      '1419766c-61c7-4772-b6bb-e7c06f7bcce4.jpeg',
+      '5865260e-5abc-4a06-9dbd-9da9e9af92dd.jpeg',
+      '8301297f-ee4f-4581-bd05-b4ee7c388671.jpeg',
+      '9588187b-4eed-4056-bd38-21cf9241819a.jpeg',
+
+      // Screenshot 2 - IMG files
+      'IMG_5335.jpeg',
+      'IMG_5373.jpeg',
+      'IMG_5374.jpeg',
+      'IMG_5376.jpeg',
+      'IMG_5379.jpeg',
+      'IMG_5380.jpeg',
+      'IMG_5381.jpeg',
+      'IMG_5382.jpeg',
+      'IMG_5383.jpeg',
+      'IMG_5384.jpeg',
+      'IMG_5385.jpeg',
+      'IMG_5386.jpeg',
+      'IMG_5387.jpeg',
+      'IMG_5388.jpeg',
+      'IMG_5390.jpeg',
+      'IMG_5392.jpeg',
+      'IMG_5393.jpeg',
+
+      // Screenshot 2 - PHOTO files
       'PHOTO-2024-11-20-19-39-09-scaled.jpg',
+      'PHOTO-2024-11-20-19-52-44-2-scaled Kopie.jpg',
       'PHOTO-2024-11-20-19-52-44-2-scaled.jpg',
       'PHOTO-2024-11-21-18-34-13-2-scaled.jpg',
       'PHOTO-2024-11-21-18-34-14-5-scaled.jpg',
       'PHOTO-2024-11-21-18-34-15-5-scaled.jpg',
       'PHOTO-2024-11-21-18-34-15-9-scaled.jpg',
+
+      // Screenshot 3 - remaining PHOTO files
       'PHOTO-2024-11-21-18-34-16-2-scaled.jpg',
       'PHOTO-2024-11-21-18-34-16-8-scaled.jpg',
       'PHOTO-2024-11-21-18-34-16-9.jpg',
@@ -359,17 +382,12 @@
       img.dataset.src = `assets/portfolio/${image}`;
       img.alt = `MHM Portfolio Projekt ${index + 1}`;
       
-      // Lazy Loading
-      img.onload = () => {
-        item.classList.remove('loading');
-      };
-      
+      img.onload = () => { item.classList.remove('loading'); };
       img.onerror = () => {
-        item.classList.remove('loading');
-        item.style.background = '#e0e0e0';
+        // Bild nicht ladbar — Element ausblenden
+        item.style.display = 'none';
       };
       
-      // Bild sofort laden (kein Lazy Loading für bessere UX)
       img.src = img.dataset.src;
       
       item.appendChild(img);
@@ -404,43 +422,29 @@
       updateLightbox();
     }
 
-    // Event Listeners
     closeLightbox.addEventListener('click', closeLightboxFunc);
     nextImage.addEventListener('click', showNext);
     prevImage.addEventListener('click', showPrev);
     
     lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        closeLightboxFunc();
-      }
+      if (e.target === lightbox) closeLightboxFunc();
     });
 
-    // Keyboard Navigation
     document.addEventListener('keydown', (e) => {
       if (!lightbox.classList.contains('active')) return;
-      
       if (e.key === 'Escape') closeLightboxFunc();
       if (e.key === 'ArrowRight') showNext();
       if (e.key === 'ArrowLeft') showPrev();
     });
 
-    // Mobile Swipe Support
     let touchStartX = 0;
     let touchEndX = 0;
-
-    lightbox.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-
+    lightbox.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
     lightbox.addEventListener('touchend', (e) => {
       touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    });
-
-    function handleSwipe() {
       if (touchEndX < touchStartX - 50) showNext();
       if (touchEndX > touchStartX + 50) showPrev();
-    }
+    });
   </script>
 
   <script src="main.js"></script>

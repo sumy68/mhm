@@ -6,7 +6,7 @@
   --accent: #4ade80;
   --accent-strong: #22c55e;
 
-  --nav-h: 90px;
+  --nav-h: 160px;
 }
 
 /* Basis */
@@ -57,7 +57,7 @@ main{
 }
 .brand{ display:flex; align-items:center; }
 .logo-box{
-  width: clamp(140px, 16vw, 200px);
+  width: clamp(280px, 30vw, 400px);
   height: auto;
 }
 .logo-box img{
