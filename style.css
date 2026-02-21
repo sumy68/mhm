@@ -6,7 +6,7 @@
   --accent: #4ade80;
   --accent-strong: #22c55e;
 
-  --nav-h: 160px;
+  --nav-h: 110px;
 }
 
 /* Basis */
@@ -57,7 +57,7 @@ main{
 }
 .brand{ display:flex; align-items:center; }
 .logo-box{
-  width: clamp(280px, 30vw, 400px);
+  width: clamp(180px, 20vw, 260px);
   height: auto;
 }
 .logo-box img{
@@ -132,6 +132,10 @@ main{
 @media (max-width:1024px){
   .burger{ display:block; }
   .nav-cta{ display:none; }
+
+  .logo-box {
+    width: clamp(120px, 28vw, 160px);
+  }
 
   .nav-links{
     position: fixed;
@@ -1100,206 +1104,206 @@ body.menu-open{
  PORTFOLIO PAGE
 ========================= */
 .portfolio-hero{
-min-height: 55vh;
-display: grid;
-place-items: center;
-padding: 120px 20px 60px;
-position: relative;
-background:
-  radial-gradient(900px 500px at 20% 20%, rgba(255,255,255,.08), transparent 60%),
-  radial-gradient(700px 400px at 80% 30%, rgba(255,255,255,.06), transparent 60%),
-  linear-gradient(180deg, rgba(0,0,0,.95), rgba(0,0,0,.85));
+  min-height: 55vh;
+  display: grid;
+  place-items: center;
+  padding: 120px 20px 60px;
+  position: relative;
+  background:
+    radial-gradient(900px 500px at 20% 20%, rgba(255,255,255,.08), transparent 60%),
+    radial-gradient(700px 400px at 80% 30%, rgba(255,255,255,.06), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.95), rgba(0,0,0,.85));
 }
 
 .portfolio-hero__inner{
-width: min(1100px, 100%);
-text-align: center;
+  width: min(1100px, 100%);
+  text-align: center;
 }
 
 .portfolio-hero__title{
-font-size: clamp(36px, 4vw, 56px);
-line-height: 1.05;
-margin: 0 0 10px;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.05;
+  margin: 0 0 10px;
 }
 
 .portfolio-hero__subtitle{
-opacity: .85;
-font-size: clamp(16px, 1.5vw, 18px);
-margin: 0 auto 24px;
-max-width: 720px;
+  opacity: .85;
+  font-size: clamp(16px, 1.5vw, 18px);
+  margin: 0 auto 24px;
+  max-width: 720px;
 }
 
 .portfolio-head{
-display:flex;
-align-items:flex-end;
-justify-content:space-between;
-gap:16px;
-margin-bottom: 18px;
-flex-wrap: wrap;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
 }
 
 .portfolio-filters{
-display:flex;
-gap:10px;
-flex-wrap: wrap;
+  display:flex;
+  gap:10px;
+  flex-wrap: wrap;
 }
 
 .pf-btn{
-border: 1px solid rgba(255,255,255,.18);
-background: rgba(255,255,255,.06);
-color: inherit;
-padding: 10px 14px;
-border-radius: 999px;
-cursor: pointer;
-transition: transform .15s ease, background .15s ease, border-color .15s ease;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+  color: inherit;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
 }
 
 .pf-btn:hover{ transform: translateY(-1px); }
 
 .pf-btn.is-active{
-background: rgba(255,255,255,.12);
-border-color: rgba(255,255,255,.3);
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.3);
 }
 
 .portfolio-grid{
-display:grid;
-grid-template-columns: repeat(3, minmax(0, 1fr));
-gap: 16px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
 }
 
 @media (max-width: 900px){
-.portfolio-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .portfolio-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 520px){
-.portfolio-grid{ grid-template-columns: 1fr; }
+  .portfolio-grid{ grid-template-columns: 1fr; }
 }
 
 .pf-card{
-border: 1px solid rgba(255,255,255,.12);
-background: rgba(255,255,255,.05);
-border-radius: 18px;
-overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  border-radius: 18px;
+  overflow: hidden;
 }
 
 .pf-media{
-width:100%;
-border:0;
-padding:0;
-background: transparent;
-cursor: zoom-in;
-display:block;
+  width:100%;
+  border:0;
+  padding:0;
+  background: transparent;
+  cursor: zoom-in;
+  display:block;
 }
 
 .pf-media img{
-width: 100%;
-height: 240px;
-object-fit: cover;
-display:block;
-transition: transform .25s ease;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display:block;
+  transition: transform .25s ease;
 }
 
 .pf-card:hover .pf-media img{ transform: scale(1.03); }
 
 .pf-body{
-padding: 14px 14px 16px;
+  padding: 14px 14px 16px;
 }
 
 .pf-body h3{
-margin: 0 0 6px;
-font-size: 16px;
+  margin: 0 0 6px;
+  font-size: 16px;
 }
 
 .pf-body p{
-margin: 0;
-opacity: .8;
-font-size: 14px;
+  margin: 0;
+  opacity: .8;
+  font-size: 14px;
 }
 
 .portfolio-cta{
-margin-top: 28px;
+  margin-top: 28px;
 }
 
 .portfolio-cta__card{
-border: 1px solid rgba(255,255,255,.12);
-background: rgba(255,255,255,.05);
-border-radius: 18px;
-padding: 18px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  border-radius: 18px;
+  padding: 18px;
 }
 
 /* =========================
  LIGHTBOX
 ========================= */
 .lightbox{
-position: fixed;
-inset: 0;
-display: none;
-z-index: 9999;
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
 }
 
 .lightbox.is-open{ display:block; }
 
 .lightbox__backdrop{
-position:absolute;
-inset:0;
-background: rgba(0,0,0,.7);
-backdrop-filter: blur(6px);
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.7);
+  backdrop-filter: blur(6px);
 }
 
 .lightbox__panel{
-position: absolute;
-left: 50%;
-top: 50%;
-transform: translate(-50%, -50%);
-width: min(980px, calc(100% - 28px));
-border-radius: 18px;
-border: 1px solid rgba(255,255,255,.18);
-background: rgba(10,10,10,.9);
-overflow: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(980px, calc(100% - 28px));
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(10,10,10,.9);
+  overflow: hidden;
 }
 
 .lightbox__figure{
-margin: 0;
-display: grid;
-gap: 0;
+  margin: 0;
+  display: grid;
+  gap: 0;
 }
 
 .lightbox__figure img{
-width: 100%;
-height: min(70vh, 680px);
-object-fit: contain;
-background: rgba(0,0,0,.55);
+  width: 100%;
+  height: min(70vh, 680px);
+  object-fit: contain;
+  background: rgba(0,0,0,.55);
 }
 
 .lightbox__figure figcaption{
-padding: 12px 14px;
-font-size: 14px;
-opacity: .85;
+  padding: 12px 14px;
+  font-size: 14px;
+  opacity: .85;
 }
 
 .lightbox__close{
-position:absolute;
-top: 10px;
-right: 12px;
-width: 42px;
-height: 42px;
-border-radius: 999px;
-border: 1px solid rgba(255,255,255,.18);
-background: rgba(255,255,255,.08);
-color: #fff;
-cursor:pointer;
+  position:absolute;
+  top: 10px;
+  right: 12px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  cursor:pointer;
 }
 
 .lightbox__nav{
-position:absolute;
-top: 50%;
-transform: translateY(-50%);
-width: 48px;
-height: 48px;
-border-radius: 999px;
-border: 1px solid rgba(255,255,255,.18);
-background: rgba(255,255,255,.08);
-color:#fff;
-cursor:pointer;
+  position:absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  color:#fff;
+  cursor:pointer;
 }
 
 .lightbox__prev{ left: 10px; }
