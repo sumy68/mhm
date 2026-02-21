@@ -6,7 +6,7 @@
   --accent: #4ade80;
   --accent-strong: #22c55e;
 
-  --nav-h: 110px;
+  --nav-h: 90px;
 }
 
 /* Basis */
@@ -42,7 +42,7 @@ main{
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: var(--green-footer);
+  background: #1F5E43;
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
@@ -57,7 +57,7 @@ main{
 }
 .brand{ display:flex; align-items:center; }
 .logo-box{
-  width: clamp(180px, 20vw, 260px);
+  width: clamp(140px, 16vw, 200px);
   height: auto;
 }
 .logo-box img{
@@ -133,17 +133,13 @@ main{
   .burger{ display:block; }
   .nav-cta{ display:none; }
 
-  .logo-box {
-    width: clamp(120px, 28vw, 160px);
-  }
-
   .nav-links{
     position: fixed;
     top: 0;
     right: -100%;
     bottom: 0;
     width: min(78vw, 320px);
-    background: var(--green-footer);
+    background: #1F5E43;
     display: flex;
     flex-direction: column;
     align-items: stretch;

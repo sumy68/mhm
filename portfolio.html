@@ -211,7 +211,6 @@
     <div class="gallery-grid" id="gallery"></div>
   </section>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="closeLightbox" aria-label="Schließen">×</button>
     <button class="lightbox-nav lightbox-prev" id="prevImage" aria-label="Vorheriges Bild">‹</button>
@@ -249,9 +248,7 @@
   </footer>
 
   <script>
-    // ALLE Bilder aus dem Portfolio-Ordner (aus Screenshots abgelesen)
     const images = [
-      // Screenshot 4 - a bis f
       'a7c3ff2e-3e0f-415c-8856-4794b8f2db2f.jpeg',
       'A72D2756-A3F7-42C5-B314-C6AAE602C69B.jpeg',
       'a3939d0d-6b41-41d4-a131-3672ca934ce9.jpeg',
@@ -267,7 +264,6 @@
       'CA5A584E-841D-4A3F-AA11-E74F957B3872_1_105_c.jpeg',
       'cf1fe810-ed2c-4226-95a9-22b9598dbf36.jpeg',
       'd2d26d2e-1576-4189-b7b5-c2ea1ca7077c.jpeg',
-      'D5D6AD0E-3793-47B1-BDC5-1F2D1C50CABB.png',
       'd3365bca-9353-4bdb-85c9-8920418ad328.jpeg',
       'deecaeea-eafc-4aef-95a0-5893316edd26.jpeg',
       'e1c6fba9-6412-49ca-86e3-cf9b4694b56b.jpeg',
@@ -279,8 +275,6 @@
       'f9c69591-a1fa-4407-aab6-c19c9f6127d1-4-scaled.jpg',
       'f15a972b-d537-4001-9dfa-7294af93d188.jpeg',
       'FE2C7215-E870-4580-88CB-0015AADDF94E.jpeg',
-
-      // Screenshot 1 - 0 bis 9
       '0BF58EBD-CBE0-4BA1-83DB-BA506A16F9AD.jpeg',
       '0c6558eb-cce2-4b9b-9137-2756526f1dd3.jpeg',
       '0f0f3273-de30-4ac3-ab08-851cdfa006ff.jpeg',
@@ -321,8 +315,6 @@
       '5865260e-5abc-4a06-9dbd-9da9e9af92dd.jpeg',
       '8301297f-ee4f-4581-bd05-b4ee7c388671.jpeg',
       '9588187b-4eed-4056-bd38-21cf9241819a.jpeg',
-
-      // Screenshot 2 - IMG files
       'IMG_5335.jpeg',
       'IMG_5373.jpeg',
       'IMG_5374.jpeg',
@@ -340,8 +332,14 @@
       'IMG_5390.jpeg',
       'IMG_5392.jpeg',
       'IMG_5393.jpeg',
-
-      // Screenshot 2 - PHOTO files
+      'IMG_5484.jpeg',
+      'IMG_5486.jpeg',
+      'IMG_5490.jpeg',
+      'IMG_5491.jpeg',
+      'IMG_5502.jpeg',
+      'IMG_5504.jpeg',
+      'IMG_5509.jpeg',
+      'IMG_5513.jpeg',
       'PHOTO-2024-11-20-19-39-09-scaled.jpg',
       'PHOTO-2024-11-20-19-52-44-2-scaled Kopie.jpg',
       'PHOTO-2024-11-20-19-52-44-2-scaled.jpg',
@@ -349,8 +347,6 @@
       'PHOTO-2024-11-21-18-34-14-5-scaled.jpg',
       'PHOTO-2024-11-21-18-34-15-5-scaled.jpg',
       'PHOTO-2024-11-21-18-34-15-9-scaled.jpg',
-
-      // Screenshot 3 - remaining PHOTO files
       'PHOTO-2024-11-21-18-34-16-2-scaled.jpg',
       'PHOTO-2024-11-21-18-34-16-8-scaled.jpg',
       'PHOTO-2024-11-21-18-34-16-9.jpg',
@@ -373,7 +369,6 @@
     
     let currentIndex = 0;
 
-    // Galerie erstellen
     images.forEach((image, index) => {
       const item = document.createElement('div');
       item.className = 'gallery-item loading';
@@ -384,7 +379,6 @@
       
       img.onload = () => { item.classList.remove('loading'); };
       img.onerror = () => {
-        // Bild nicht ladbar — Element ausblenden
         item.style.display = 'none';
       };
       
