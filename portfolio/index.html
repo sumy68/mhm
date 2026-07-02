@@ -4,6 +4,24 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio - MHM Garten- und Landschaftsbau</title>
+  <meta name="description" content="Portfolio von MHM Garten- und Landschaftsbau: realisierte Projekte aus Gartengestaltung, Landschaftsbau, Pflasterbau und kompletten Außenanlagen in Ludwigsburg und Umgebung.">
+  <link rel="canonical" href="https://mhm-bau.de/portfolio/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="MHM Garten- und Landschaftsbau">
+  <meta property="og:title" content="Portfolio – MHM Garten- und Landschaftsbau Ludwigsburg">
+  <meta property="og:description" content="Einblicke in realisierte Projekte aus Gartengestaltung, Landschaftsbau und Außenanlagen in Ludwigsburg und Umgebung.">
+  <meta property="og:url" content="https://mhm-bau.de/portfolio/">
+  <meta property="og:image" content="https://mhm-bau.de/assets/hero.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portfolio – MHM Garten- und Landschaftsbau Ludwigsburg">
+  <meta name="twitter:description" content="Realisierte Projekte aus Gartengestaltung, Landschaftsbau und Außenanlagen in Ludwigsburg und Umgebung.">
+  <meta name="twitter:image" content="https://mhm-bau.de/assets/hero.jpg">
+
   <link rel="stylesheet" href="/style.css">
   <style>
     .portfolio-hero {
@@ -158,7 +176,7 @@
     <div class="nav-wrap">
       <a class="brand" href="/" aria-label="Start">
         <div class="logo-box">
-          <img src="/logo.jpg" alt="MHM Garten- und Landschaftsbau Logo">
+          <img src="/logo.jpg" alt="MHM Garten- und Landschaftsbau Logo" width="400" height="200">
         </div>
       </a>
   
@@ -397,7 +415,8 @@
       
       const img = document.createElement('img');
       img.dataset.src = `/assets/portfolio/${image}`;
-      img.alt = `MHM Portfolio Projekt ${index + 1}`;
+      img.alt = `Garten- und Landschaftsbau Projekt ${index + 1} von MHM in Ludwigsburg`;
+      img.loading = 'lazy';
       
       img.onload = () => { item.classList.remove('loading'); };
       img.onerror = () => {
