@@ -82,29 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // ===== PAGE LOAD ANIMATION =====
   window.addEventListener('load', () => document.body.classList.add('loaded'));
   
-  // ===== BURGER MENU =====
-  const burger = document.querySelector('.burger');
-  const links = document.querySelector('.nav-links');
-  
-  if (burger && links) {
-    const toggle = () => {
-      const isOpen = links.classList.toggle('open');
-      burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      document.body.classList.toggle('menu-open', isOpen);
-    };
-  
-    burger.addEventListener('click', toggle);
-  
-    // Close menu when clicking on a link
-    links.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => {
-        links.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('menu-open');
-      })
-    );
-  }
-  
   // ===== HERO VIDEO AUTOPLAY =====
   window.addEventListener("load", function () {
     const vid = document.querySelector(".hero__video");

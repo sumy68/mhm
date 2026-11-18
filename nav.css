@@ -1,0 +1,346 @@
+/* =====================================================
+   NAVIGATION – Desktop-Leiste (≥981px) & Mobil-Overlay
+   ===================================================== */
+:root{
+  --nav-bg: #1F5E43;
+  --nav-ink: #ffffff;
+  --nav-ink-dark: #0f2416;
+  --nav-line: rgba(255,255,255,.14);
+  --nav-h: 64px;
+  --nav-shrink: 0px;
+  --nav-ease: cubic-bezier(.2,.8,.2,1);
+}
+@media (min-width: 981px){
+  :root{ --nav-h: 88px; --nav-shrink: 16px; }
+}
+
+/* ---------- Header-Grundgerüst ---------- */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--nav-h);
+  pointer-events: none;
+}
+/* Hintergrund + Linie als eigene Ebenen → Schrumpfen nur per transform */
+.site-header::before,
+.site-header::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  z-index: 0;
+  transition: transform .3s var(--nav-ease), opacity .3s var(--nav-ease);
+}
+.site-header::before{
+  top: -24px; bottom: 0;
+  background: var(--nav-bg);
+}
+.site-header::after{
+  bottom: 0;
+  height: 1px;
+  background: var(--nav-line);
+  opacity: 0;
+}
+.site-header.is-scrolled::before,
+.site-header.is-scrolled::after{ transform: translateY(calc(var(--nav-shrink) * -1)); }
+.site-header.is-scrolled::after,
+.site-header.is-open::after{ opacity: 1; }
+
+.nav-wrap{
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  height: var(--nav-h);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  transition: transform .3s var(--nav-ease);
+}
+.nav-wrap > *{ pointer-events: auto; }
+.site-header.is-scrolled .nav-wrap{ transform: translateY(calc(var(--nav-shrink) / -2)); }
+
+/* ---------- Logo ---------- */
+.brand{
+  display: flex;
+  align-items: center;
+  flex: none;
+  border-radius: 4px;
+}
+.brand img{
+  display: block;
+  height: 48px;
+  width: auto;
+  aspect-ratio: 396 / 146;
+  border-radius: 4px;
+  transform-origin: left center;
+  transition: transform .3s var(--nav-ease);
+}
+.site-header.is-scrolled .brand img{ transform: scale(.86); }
+
+/* ---------- Icons (Outline, einheitlich) ---------- */
+.ico{
+  width: 22px;
+  height: 22px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icon-link{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--nav-ink);
+  opacity: .88;
+  border-radius: 6px;
+  transition: opacity .2s ease;
+}
+.icon-link:hover{ opacity: 1; }
+
+/* ---------- Desktop-Menü ---------- */
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 2.2vw, 32px);
+  margin-left: auto;
+}
+.nav-links a{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  color: var(--nav-ink);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-links a::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 8px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .2s ease;
+}
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after,
+.nav-links a.is-active::after,
+.nav-links a[aria-current="page"]::after{ transform: scaleX(1); }
+
+.nav-actions{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+}
+.nav-cta{
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  margin-left: 12px;
+  padding: 0 20px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--nav-ink-dark);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform .2s ease;
+}
+.nav-cta:hover{ background: var(--accent-strong); transform: translateY(-1px); }
+
+.site-header a:focus-visible,
+.site-header button:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (min-width: 1200px){
+  .nav-links a{ font-size: 16px; }
+}
+/* Schmaler Desktop: etwas enger, WhatsApp bleibt im Footer/Mobilmenü */
+@media (min-width: 981px) and (max-width: 1139px){
+  .nav-wrap{ gap: 24px; }
+  .nav-links{ gap: 20px; }
+  .icon-link--wa{ display: none; }
+  .nav-cta{ margin-left: 8px; padding: 0 16px; }
+}
+
+/* ---------- Burger ---------- */
+.burger{
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin-right: -11px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--nav-ink);
+  cursor: pointer;
+}
+.burger__line{
+  position: absolute;
+  right: 11px;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+  transition: transform .3s var(--nav-ease);
+}
+.burger__line:first-child{
+  top: 17px;
+  transform: translate(0, 0) rotate(0) scaleX(1);
+}
+.burger__line:last-child{
+  top: 25px;
+  /* 14px breit, rechtsbündig */
+  transform: translate(4px, 0) rotate(0) scaleX(.6364);
+}
+.burger[aria-expanded="true"] .burger__line:first-child{ transform: translate(0, 4px) rotate(45deg) scaleX(1); }
+.burger[aria-expanded="true"] .burger__line:last-child{ transform: translate(0, -4px) rotate(-45deg) scaleX(1); }
+
+/* ---------- Mobil (<981px) ---------- */
+@media (max-width: 980px){
+  .nav-wrap{ padding: 0 16px; gap: 8px; }
+  .brand img{ height: 40px; }
+  .nav-links,
+  .nav-cta,
+  .icon-link--wa{ display: none; }
+  .nav-actions{ margin-left: auto; gap: 0; }
+  .burger{ display: block; }
+}
+
+/* ---------- Overlay ---------- */
+.mnav{
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  padding-top: var(--nav-h);
+  background: var(--nav-bg);
+  pointer-events: auto;
+  opacity: 0;
+  transition: opacity .3s var(--nav-ease);
+}
+.mnav[hidden]{ display: none; }
+.mnav.is-open{ opacity: 1; }
+
+.mnav__inner{
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 24px 20px calc(28px + env(safe-area-inset-bottom));
+}
+.mnav__list{ list-style: none; }
+.mnav__list li,
+.mnav__footer{
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .45s var(--nav-ease), transform .45s var(--nav-ease);
+  transition-delay: 0ms;
+}
+.mnav.is-open .mnav__list li,
+.mnav.is-open .mnav__footer{
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(60ms + var(--i, 0) * 60ms);
+}
+.mnav__list a{
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 8px 0;
+  color: var(--nav-ink);
+  font-size: clamp(30px, 8.6vw, 36px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  text-decoration: none;
+}
+.mnav__list a[aria-current="page"],
+.mnav__list a.is-active{ color: var(--accent); }
+.mnav__num{
+  min-width: 20px;
+  padding-top: .35em;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.mnav__contact{
+  list-style: none;
+  display: grid;
+  gap: 4px;
+  padding-top: 20px;
+  border-top: 1px solid var(--nav-line);
+}
+.mnav__contact a{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  color: var(--nav-ink);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.mnav__contact .ico{ color: var(--accent); }
+.mnav__cta{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  margin-top: 16px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--nav-ink-dark);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media (min-width: 981px){
+  .mnav{ display: none !important; }
+}
+
+/* Body-Scroll-Sperre */
+html.nav-locked,
+html.nav-locked body{ overflow: hidden; }
+
+/* ---------- Reduzierte Bewegung ---------- */
+@media (prefers-reduced-motion: reduce){
+  .site-header::before,
+  .site-header::after,
+  .nav-wrap,
+  .brand img,
+  .nav-links a::after,
+  .nav-cta,
+  .burger__line,
+  .mnav,
+  .mnav__list li,
+  .mnav__footer{
+    transition: none !important;
+  }
+  .mnav__list li,
+  .mnav__footer{ transform: none; }
+}
